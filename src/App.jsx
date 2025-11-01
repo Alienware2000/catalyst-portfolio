@@ -40,7 +40,7 @@ export default function App() {
         </p>
       </section>
 
-      <hr className="mt-10 border-gray-200/70" />
+      
 
       <footer className="mt-10 pb-10 text-sm text-gray-500">
         <small>© {new Date().getFullYear()} David Antwi</small>

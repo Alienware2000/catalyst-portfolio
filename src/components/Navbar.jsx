@@ -1,6 +1,6 @@
 export default function Navbar() {
     return (
-        <nav className="flex items-center justify-between py-3">
+        <nav className="mt-4 flex items-center justify-between py-4">
             <strong className="text-xl font-semibold tracking-tight">David Antwi</strong>
             <div className="space-x-4">
                 <a className="text-gray-600 hover:text-indigo-600" href="#projects">Projects</a>
