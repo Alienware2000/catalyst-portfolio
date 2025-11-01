@@ -34,9 +34,9 @@ export default function App() {
       <section id="contact" className="mt-14 mb-16">
         <h2 className="text-lg font-semibold">Contact</h2>
         <p className="mt-3">
-          <a className="text-indigo-600 hover:underline" href="https://github.com/Alienware2000">GitHub</a> 
+          <a className="text-indigo-600 hover:underline" href="https://github.com/Alienware2000" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span className="mx-2 text-gray-400">·</span>
-          <a className="text-indigo-600 hover:underline" href="https://www.linkedin.com/in/david-antwi-b17727205/">LinkedIn</a>
+          <a className="text-indigo-600 hover:underline" href="https://www.linkedin.com/in/david-antwi-b17727205/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
       </section>
 
