@@ -3,7 +3,13 @@ import Hero from "./components/Hero.jsx";
 import Navbar from "./components/Navbar.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import { projects } from "./data/projects.js";
+import Atmosphere from "./components/Atmosphere.jsx";
+import Reveal from "./components/Reveal.jsx";
+import Section from "./components/Section.jsx";
 import { motion } from "framer-motion";
+import NextSectionButton from "./components/NextSectionButton.jsx";
+
+
 
 export default function App() {
   return (
@@ -14,37 +20,36 @@ export default function App() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* <Header /> */}
-      <Navbar />
+      <Atmosphere />
+      {/* <Navbar /> */}
       <Hero />
 
-      <hr className="mt-10 border-gray-200/70" />
 
-      <section id="projects" className="mt-12">
-        <h2 className="text-lg font-semibold">Projects</h2>
-        <div className="mt-5 space-y-4">
+      <Reveal>
+      <Section id="projects" title="Projects" ambient full>
+        <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
             {projects.map(p => <ProjectCard key={p.title} {...p} />)}
         </div>
-      </section>
+        <NextSectionButton href="#about" />
+      </Section>
+      </Reveal>
 
-      <hr className="mt-10 border-gray-200/70" />
 
-      <section id="about" className="mt-14">
-        <h2 className="text-lg font-semibold">About</h2>
-        <p className="mt-3 text-gray-700 dark:text-gray-300">
+      <Section id="about" title="About" full>
+        <p className="text-gray-700 dark:text-gray-300 max-w-3xl">
             Short bio/About me goes here. Interests, tools, and what I’m learning.
         </p>
-      </section>
+        <NextSectionButton href="#contact" />
+      </Section>
 
-      <hr className="mt-10 border-gray-200/70" />
 
-      <section id="contact" className="mt-14 mb-16">
-        <h2 className="text-lg font-semibold">Contact</h2>
-        <p className="mt-3">
+      <Section id="contact" title="Contact" full className="mb-16">
+        <p className="">
           <a className="text-indigo-600 hover:underline" href="https://github.com/Alienware2000" target="_blank" rel="noopener noreferrer">GitHub</a>
           <span className="mx-2 text-gray-400">·</span>
           <a className="text-indigo-600 hover:underline" href="https://www.linkedin.com/in/david-antwi-b17727205/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </p>
-      </section>
+      </Section>
 
       
 

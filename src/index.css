@@ -14,3 +14,6 @@ html { scroll-behavior: smooth; }
 
 /* smoothen theme changes */
 * { transition: background-color .2s linear, color .2s linear, border-color .2s linear; }
+
+html:focus-within { scroll-behavior: smooth; }
+
