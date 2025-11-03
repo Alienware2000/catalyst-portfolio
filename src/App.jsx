@@ -3,10 +3,16 @@ import Hero from "./components/Hero.jsx";
 import Navbar from "./components/Navbar.jsx";
 import ProjectCard from "./components/ProjectCard.jsx";
 import { projects } from "./data/projects.js";
+import { motion } from "framer-motion";
 
 export default function App() {
   return (
-    <main className="mx-auto max-w-2xl px-5">
+    <motion.main
+      className="mx-auto max-w-5xl px-6 pt-10 sm:pt-14"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       {/* <Header /> */}
       <Navbar />
       <Hero />
@@ -45,6 +51,6 @@ export default function App() {
       <footer className="mt-10 pb-10 text-sm text-gray-500">
         <small>© {new Date().getFullYear()} David Antwi</small>
       </footer>
-    </main>
+    </motion.main>
   );
 }

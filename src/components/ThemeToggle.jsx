@@ -1,10 +1,8 @@
+// ThemeToggle.jsx
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  // initialize from DOM (in case inline script already set it)
-  const initial = typeof document !== "undefined"
-    ? document.documentElement.classList.contains("dark")
-    : false;
+  const initial = document.documentElement.classList.contains("dark");
   const [dark, setDark] = useState(initial);
 
   useEffect(() => {
