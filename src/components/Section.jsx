@@ -14,7 +14,7 @@ export default function Section({ id, title, children, ambient = false, full = f
     <section
       ref={ref}
       id={id}
-      className={`relative ${full ? "min-h-[85vh] grid content-start" : "mt-20"} scroll-mt-24 ${className}`}
+      className={`relative ${full ? "min-h-[85vh] flex flex-col" : "mt-20"} scroll-mt-24 ${className}`}
       aria-labelledby={id ? `${id}-title` : undefined}
     >
       {/* Subtle ambient glow for certain sections */}
@@ -29,15 +29,18 @@ export default function Section({ id, title, children, ambient = false, full = f
         </div>
       )}
 
-      {/* Section title */}
+      {/* Section title - enhanced formatting */}
       {title && (
         <motion.h2
           id={id ? `${id}-title` : undefined}
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-8 text-xl sm:text-2xl font-medium tracking-tight
-                     text-slate-900 dark:text-slate-100"
+          className="mb-12 text-2xl sm:text-3xl font-medium tracking-tight
+                     text-slate-900 dark:text-slate-100
+                     relative inline-block
+                     after:content-[''] after:absolute after:bottom-[-0.5rem] after:left-0
+                     after:w-12 after:h-[1px] after:bg-slate-900/20 dark:after:bg-slate-100/20"
         >
           {title}
         </motion.h2>
@@ -48,6 +51,7 @@ export default function Section({ id, title, children, ambient = false, full = f
         initial={{ opacity: 0, y: 10 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+        className={full ? "flex-1 flex flex-col" : ""}
       >
         {children}
       </motion.div>

@@ -33,27 +33,35 @@ export default function App() {
           <NextSectionButton href="#about" />
         </Section>
 
-        {/* About Section - 3 horizontal paragraphs */}
-        <Section id="about" title="About" full>
-          <div className="mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-8">
-            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-              I'm an Electrical Engineering and Computer Science student at Yale University, graduating in May 2028. 
-              I build intelligent systems that bridge hardware and software—from deploying quantized neural networks 
-              on microcontrollers to real-time sensor fusion and semantic search systems.
-            </p>
+        {/* About Section - 3 horizontal paragraphs with borders, vertically centered */}
+        <Section id="about" title="About" full className="mb-24">
+          <div className="flex items-center flex-1 min-h-0">
+            <div className="mx-auto max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-6 rounded-lg border border-white/20 dark:border-white/10 bg-transparent">
+                <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                  I'm an Electrical Engineering and Computer Science student at Yale University, graduating in May 2028. 
+                  I build intelligent systems that bridge hardware and software—from deploying quantized neural networks 
+                  on microcontrollers to real-time sensor fusion and semantic search systems.
+                </p>
+              </div>
 
-            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-              Currently, I'm a Research Intern at The Faboratory at Yale, building wearable motion tracking systems 
-              with embedded sensor fusion. I'm also a Software Developer on the Yale Mars Rover Team, co-developing 
-              rover UI systems, and a Catalyst Mentor with the Yale Computer Science Society, guiding students 
-              through web development projects.
-            </p>
+              <div className="p-6 rounded-lg border border-white/20 dark:border-white/10 bg-transparent">
+                <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                  Currently, I'm a Research Intern at The Faboratory at Yale, building wearable motion tracking systems 
+                  with embedded sensor fusion. I'm also a Software Developer on the Yale Mars Rover Team, co-developing 
+                  rover UI systems, and a Catalyst Mentor with the Yale Computer Science Society, guiding students 
+                  through web development projects.
+                </p>
+              </div>
 
-            <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
-              Previously, I worked as an ML Research Intern with the MISE Research Program in Ghana, where I trained 
-              CNNs for EEG signal decoding, built TinyML malaria diagnosis systems achieving 93% on-device accuracy, 
-              and developed ML classifiers for drug combination prediction.
-            </p>
+              <div className="p-6 rounded-lg border border-white/20 dark:border-white/10 bg-transparent">
+                <p className="text-base leading-relaxed text-slate-600 dark:text-slate-400">
+                  Previously, I worked as an ML Research Intern with the MISE Research Program in Ghana, where I trained 
+                  CNNs for EEG signal decoding, built TinyML malaria diagnosis systems achieving 93% on-device accuracy, 
+                  and developed ML classifiers for drug combination prediction.
+                </p>
+              </div>
+            </div>
           </div>
           <NextSectionButton href="#skills" />
         </Section>
