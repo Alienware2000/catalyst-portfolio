@@ -1,13 +1,29 @@
 /**
  * Typewriter Component
- * Animated text typing effect with blinking cursor
- * Delays start until after intro overlay completes
+ * Natural, human-like typing effect with variable speed
+ * Slower and more natural pacing
  */
 import { useEffect, useState } from "react";
 
-export default function Typewriter({ text, speed = 80, startDelay = 3000 }) {
+export default function Typewriter({ text, baseSpeed = 150, startDelay = 2200 }) {
   const [displayedText, setDisplayedText] = useState("");
   const [isStarted, setIsStarted] = useState(false);
+
+  // Add natural variation to typing speed
+  const getTypingSpeed = (char, index) => {
+    let speed = baseSpeed;
+    
+    // Spaces type faster
+    if (char === " ") return speed * 0.3;
+    
+    // Add slight randomness for natural feel (10-20% variation)
+    const variation = speed * (0.1 + Math.random() * 0.1);
+    
+    // Slight pause after certain characters
+    if (char === "," || char === ".") return speed * 1.5;
+    
+    return speed + variation;
+  };
 
   useEffect(() => {
     // Reset when text changes
@@ -24,8 +40,11 @@ export default function Typewriter({ text, speed = 80, startDelay = 3000 }) {
       
       const typeNextChar = () => {
         if (currentIndex < text.length) {
+          const char = text[currentIndex];
           setDisplayedText(text.slice(0, currentIndex + 1));
           currentIndex++;
+          
+          const speed = getTypingSpeed(char, currentIndex);
           const timer = setTimeout(typeNextChar, speed);
           timers.push(timer);
         }
@@ -39,7 +58,7 @@ export default function Typewriter({ text, speed = 80, startDelay = 3000 }) {
     return () => {
       timers.forEach(timer => clearTimeout(timer));
     };
-  }, [text, speed, startDelay]);
+  }, [text, baseSpeed, startDelay]);
 
   return (
     <span>

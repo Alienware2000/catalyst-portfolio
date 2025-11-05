@@ -1,39 +1,46 @@
 /**
  * IntroOverlay Component
- * Full-screen introductory overlay that fades into the main site
- * Supports skip interaction and respects reduced motion preferences
+ * Simple, elegant loading screen with name fade-in/fade-out
+ * Minimal and smooth entrance experience
  */
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export default function IntroOverlay({
   name = "David Antwi",
-  stayMs = 2000,        // stays visible for about 2s before fade
-  fadeMs = 700,         // fade a bit slower (optional)
-
+  duration = 2000, // Total duration: fade in, stay, fade out
 }) {
   const [show, setShow] = useState(true);
   const reduce = useReducedMotion();
 
-  // auto-hide after a short moment
   useEffect(() => {
-    if (reduce) { setShow(false); return; }
-    const t = setTimeout(() => setShow(false), stayMs);
-    return () => clearTimeout(t);
-  }, [reduce, stayMs]);
+    if (reduce) {
+      setShow(false);
+      return;
+    }
 
-  // prevent scroll while overlay is visible
+    const timer = setTimeout(() => {
+      setShow(false);
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [reduce, duration]);
+
+  // Prevent scroll while overlay is visible
   useEffect(() => {
     const root = document.documentElement;
-    if (show) root.classList.add("overflow-hidden");
-    else root.classList.remove("overflow-hidden");
+    if (show) {
+      root.classList.add("overflow-hidden");
+    } else {
+      root.classList.remove("overflow-hidden");
+    }
     return () => root.classList.remove("overflow-hidden");
   }, [show]);
 
-  // allow user to skip on click or key press
+  // Allow skip on click or key press
   useEffect(() => {
-    const skip = () => setShow(false);
     if (!show) return;
+    const skip = () => setShow(false);
     window.addEventListener("keydown", skip);
     window.addEventListener("click", skip);
     return () => {
@@ -47,15 +54,40 @@ export default function IntroOverlay({
       {show && (
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center
-                     bg-white dark:bg-black text-black dark:text-white"
+                     bg-white dark:bg-[#09090b]"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: fadeMs / 1000 } }}
+          exit={{ opacity: 0 }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.25, 0.1, 0.25, 1]
+          }}
         >
+          {/* Background with subtle gradient */}
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-br 
+                       from-slate-50 via-white to-sky-50/20
+                       dark:from-[#09090b] dark:via-[#0f0f14] dark:to-blue-950/10"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 0.6,
+              ease: [0.25, 0.1, 0.25, 1]
+            }}
+          />
+
+          {/* Name - coordinated fade in/out */}
           <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 12, scale: 0.98 }}
-            animate={reduce ? {} : { opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-5xl sm:text-7xl font-semibold tracking-tight"
+            className="relative z-10 text-5xl sm:text-6xl md:text-7xl font-semibold tracking-tight
+                       text-slate-900 dark:text-slate-100"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              duration: 0.7,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay: 0.1
+            }}
           >
             {name}
           </motion.h1>

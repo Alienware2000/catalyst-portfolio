@@ -19,12 +19,12 @@ import Skills from "./components/Skills.jsx";
 export default function App() {
   return (
     <>
-      <IntroOverlay name="David Antwi" stayMs={1200} fadeMs={500} />
+      <IntroOverlay name="David Antwi" duration={2000} />
       <motion.main
         className="mx-auto max-w-5xl px-6 pt-10 sm:pt-14"
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.0, ease: [0.25, 0.46, 0.45, 0.94], delay: 1.7 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.0, ease: [0.4, 0, 0.2, 1], delay: 2.0 }}
     >
       {/* <Header /> */}
       <Atmosphere />
@@ -34,7 +34,7 @@ export default function App() {
 
       <Reveal>
       <Section id="projects" title="Projects" ambient full>
-        <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
+        <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0 lg:grid-cols-3">
             {projects.map(p => <ProjectCard key={p.title} {...p} />)}
         </div>
         <NextSectionButton href="#about" />
@@ -52,18 +52,22 @@ export default function App() {
             className="space-y-4"
           >
             <p className="text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-              I'm a Yale EECS student passionate about building intelligent systems that bridge the gap between 
-              hardware and software. My work spans machine learning, embedded systems, and modern web development, 
-              with a particular focus on creating tools that make complex technology more accessible.
+              I'm an Electrical Engineering and Computer Science student at Yale University, graduating in May 2028. 
+              I'm passionate about building intelligent systems that bridge hardware and software, with a focus on 
+              machine learning, embedded systems, and TinyML applications. My work spans from deploying quantized 
+              neural networks on microcontrollers to building semantic search systems and real-time sensor fusion systems.
             </p>
             <p className="text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-              As a Catalyst Mentor, I help students navigate their technical journeys, whether that's diving into 
-              AI/ML research, building their first embedded project, or crafting polished web applications. 
-              I believe in the power of combining rigorous engineering with creative problem-solving.
+              Currently, I'm a Research Intern at The Faboratory at Yale, building wearable motion tracking systems 
+              with embedded sensor fusion. I'm also a Software Developer on the Yale Mars Rover Team, co-developing 
+              rover UI systems, and a Catalyst Mentor with the Yale Computer Science Society, mentoring students as 
+              they learn web development and build their own projects.
             </p>
             <p className="text-base sm:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-              Currently exploring: reinforcement learning for robotics control, edge AI deployment, and 
-              building more intuitive developer tools. Always excited to collaborate on interesting projects!
+              Previously, I worked as an ML Research Intern with the MISE Research Program in Ghana, where I trained 
+              CNNs for EEG signal decoding, built TinyML malaria diagnosis systems achieving 93% on-device accuracy, 
+              and developed ML classifiers for drug combination prediction. I'm always excited to work on projects that 
+              combine rigorous engineering with practical impact.
             </p>
           </motion.div>
         </div>

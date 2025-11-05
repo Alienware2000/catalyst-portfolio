@@ -34,44 +34,44 @@ export default function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 12, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.0, ease: [0.4, 0, 0.2, 1], delay: 2.0 }}
         className="mx-auto max-w-3xl px-2"
       >
         {/* Enhanced typography with refined sizing */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight
                        text-gray-900 dark:text-gray-100
                        leading-[1.1]">
-          <Typewriter text="David Antwi" speed={100} startDelay={3000} />
+          <Typewriter text="David Antwi" baseSpeed={160} startDelay={2200} />
         </h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.5, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           className="mt-8 text-lg sm:text-xl lg:text-2xl
                      text-gray-700 dark:text-gray-300
                      font-medium leading-relaxed"
         >
-          I build ML-powered tools, embedded systems, and clean web apps.
+          I build ML-powered tools, embedded systems, and TinyML applications.
         </motion.p>
 
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 4.0, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           className="mx-auto mt-6 max-w-2xl text-base sm:text-lg
                      leading-relaxed text-gray-600 dark:text-gray-400"
         >
-          Yale EECS student and Catalyst Mentor working across AI/ML, robotics, and modern frontend.
-          Recent work: an academic-lab matcher, a voice-journaling app, and wearable robotics.
+          Yale EECS student and Research Intern working across machine learning, embedded systems, and web development.
+          Recent work: wearable motion tracking, TinyML medical diagnosis, and semantic search systems.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 4.5, duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <motion.a

@@ -8,30 +8,30 @@ import { useRef } from "react";
 
 const skillCategories = [
   {
-    title: "Languages",
+    title: "Programming Languages",
     skills: [
-      { name: "Python", level: 90 },
+      { name: "Python", level: 92 },
       { name: "JavaScript/TypeScript", level: 85 },
-      { name: "C++", level: 80 },
-      { name: "Java", level: 75 },
+      { name: "C++", level: 88 },
+      { name: "C", level: 82 },
     ]
   },
   {
-    title: "Frameworks & Tools",
+    title: "ML & Frameworks",
     skills: [
-      { name: "React", level: 88 },
-      { name: "TensorFlow/PyTorch", level: 85 },
-      { name: "Node.js", level: 80 },
-      { name: "Git", level: 90 },
+      { name: "PyTorch", level: 88 },
+      { name: "TensorFlow/Keras", level: 85 },
+      { name: "React/Next.js", level: 87 },
+      { name: "FastAPI", level: 80 },
     ]
   },
   {
     title: "Specializations",
     skills: [
-      { name: "Machine Learning", level: 85 },
-      { name: "Embedded Systems", level: 80 },
-      { name: "Robotics", level: 75 },
-      { name: "Web Development", level: 88 },
+      { name: "Machine Learning", level: 88 },
+      { name: "Embedded Systems", level: 90 },
+      { name: "TinyML", level: 85 },
+      { name: "Web Development", level: 85 },
     ]
   }
 ];
