@@ -66,6 +66,7 @@ export default function Hero() {
             href="#projects"
             className="text-sm text-slate-700 dark:text-slate-300
                        hover:text-slate-900 dark:hover:text-slate-100
+                       hover:underline underline-offset-2
                        transition-colors duration-200"
           >
             Projects
@@ -76,6 +77,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="text-sm text-slate-700 dark:text-slate-300
                        hover:text-slate-900 dark:hover:text-slate-100
+                       hover:underline underline-offset-2
                        transition-colors duration-200"
           >
             Connect

@@ -46,6 +46,7 @@ export default function ProjectCard({ title, description, tags = [], link }) {
           rel="noreferrer"
           className="inline-block text-sm text-slate-700 dark:text-slate-300
                      hover:text-slate-900 dark:hover:text-slate-100
+                     hover:underline underline-offset-2
                      transition-colors duration-200"
         >
           View project →

@@ -85,6 +85,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="text-slate-700 dark:text-slate-300
                          hover:text-slate-900 dark:hover:text-slate-100
+                         hover:underline underline-offset-2
                          transition-colors duration-200"
             >
               GitHub
@@ -95,6 +96,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="text-slate-700 dark:text-slate-300
                          hover:text-slate-900 dark:hover:text-slate-100
+                         hover:underline underline-offset-2
                          transition-colors duration-200"
             >
               LinkedIn
