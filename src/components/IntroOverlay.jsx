@@ -13,14 +13,17 @@ export default function IntroOverlay({
   const [show, setShow] = useState(true);
   const reduce = useReducedMotion();
 
+  // Initialize: respect reduced motion and session-level skip
   useEffect(() => {
-    if (reduce) {
+    const seen = typeof window !== "undefined" && sessionStorage.getItem("introSeen") === "1";
+    if (reduce || seen) {
       setShow(false);
       return;
     }
 
     const timer = setTimeout(() => {
       setShow(false);
+      try { sessionStorage.setItem("introSeen", "1"); } catch (_) {}
     }, duration);
 
     return () => clearTimeout(timer);
@@ -37,10 +40,13 @@ export default function IntroOverlay({
     return () => root.classList.remove("overflow-hidden");
   }, [show]);
 
-  // Allow skip on click or key press
+  // Allow skip on click or key press, mark session seen
   useEffect(() => {
     if (!show) return;
-    const skip = () => setShow(false);
+    const skip = () => {
+      try { sessionStorage.setItem("introSeen", "1"); } catch (_) {}
+      setShow(false);
+    };
     window.addEventListener("keydown", skip);
     window.addEventListener("click", skip);
     return () => {
@@ -55,6 +61,9 @@ export default function IntroOverlay({
         <motion.div
           className="fixed inset-0 z-[100] flex items-center justify-center
                      bg-[#fcfcfb] dark:bg-[#0a0a0c]"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Intro overlay"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ 
@@ -62,21 +71,45 @@ export default function IntroOverlay({
             ease: [0.25, 0.1, 0.25, 1]
           }}
         >
-          {/* Ultra-minimal name reveal - large and centered */}
-          <motion.h1
-            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl
-                       font-medium tracking-tight leading-none
-                       text-slate-900 dark:text-slate-100"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ 
-              duration: 0.8,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-          >
-            {name}
-          </motion.h1>
+          {/* Optional faint grid for continuity */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.015] dark:opacity-[0.02]">
+            <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid-intro" width="80" height="80" patternUnits="userSpaceOnUse">
+                  <path d="M 80 0 L 0 0 0 80" fill="none" stroke="currentColor" strokeWidth="0.3" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-intro)" className="text-slate-300/50 dark:text-slate-700/50" />
+            </svg>
+          </div>
+
+          {/* Stack: monogram + name */}
+          <div className="relative z-10 grid place-items-center gap-4">
+            {/* Monogram pill */}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.5, delay: 0.05, ease: [0.25, 0.1, 0.25, 1] }}
+              className="h-9 px-3 rounded-full border border-white/20 dark:border-white/10
+                         bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm
+                         text-slate-900 dark:text-slate-100 text-sm font-medium tracking-wide"
+            >
+              <div className="flex h-full items-center">DA</div>
+            </motion.div>
+
+            {/* Name */}
+            <motion.h1
+              className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight leading-none
+                         text-slate-900 dark:text-slate-100"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {name}
+            </motion.h1>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
