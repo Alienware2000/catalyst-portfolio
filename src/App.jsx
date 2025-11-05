@@ -63,14 +63,14 @@ export default function App() {
         <NextSectionButton href="#contact" />
       </Section>
 
-      {/* Contact Section */}
-      <Section id="contact" title="Contact" full className="mb-16">
+      {/* Contact Section - Compact, no full-height */}
+      <Section id="contact" title="Contact" className="mb-12">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-base text-slate-600 dark:text-slate-400 mb-8">
+          <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
             Let's connect and build something amazing together.
           </p>
           
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-6 mb-12">
             <a
               href="https://github.com/Alienware2000"
               target="_blank"
@@ -95,7 +95,7 @@ export default function App() {
         </div>
       </Section>
 
-      <footer className="mt-16 pb-10 text-center text-sm text-slate-500 dark:text-slate-400">
+      <footer className="pb-10 text-center text-sm text-slate-500 dark:text-slate-400">
         <small>© {new Date().getFullYear()} David Antwi</small>
       </footer>
     </main>
