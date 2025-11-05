@@ -62,9 +62,10 @@ export default function IntroOverlay({
             ease: [0.25, 0.1, 0.25, 1]
           }}
         >
-          {/* Ultra-minimal name reveal */}
+          {/* Ultra-minimal name reveal - large and centered */}
           <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight
+            className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl
+                       font-medium tracking-tight leading-none
                        text-slate-900 dark:text-slate-100"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
