@@ -27,40 +27,49 @@ export default function Hero() {
       >
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight
                        text-slate-900 dark:text-slate-100
-                       leading-[1.08] mb-8 whitespace-nowrap">
+                       leading-[1.08] mb-4 whitespace-nowrap">
           <Typewriter text="I'm David Antwi" baseSpeed={140} startDelay={1800} />
         </h1>
+
+        {/* Prompt line */}
+        <motion.p
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.0, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="font-mono text-base sm:text-lg text-slate-600/90 dark:text-slate-400/90 mb-6"
+        >
+          {"> Engineering across hardware + software"}
+        </motion.p>
 
         {/* One sentence value statement */}
         <motion.p
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ delay: 2.2, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-xl sm:text-2xl text-slate-700 dark:text-slate-300
                      font-normal leading-relaxed mb-8"
         >
-          I build ML-powered tools, embedded systems, and TinyML applications.
+          I design and build intelligent systems that bridge silicon and software.
         </motion.p>
 
         {/* 2-3 line paragraph with focus areas */}
         <motion.p
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ delay: 2.4, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="mx-auto max-w-2xl text-base sm:text-lg
                      leading-relaxed text-slate-600 dark:text-slate-400 mb-12"
         >
-          Yale EECS student and Research Intern working across machine learning, embedded systems, and web development. 
-          Focus areas: deploying quantized neural networks on microcontrollers, real-time sensor fusion, and semantic search systems. 
-          Currently building wearable motion tracking systems and exploring edge AI deployment.
+          Yale EECS student and Research Intern working across embedded systems, TinyML, sensor fusion, and semantic search.
+          Lately, I have been deploying quantized neural networks on microcontrollers and building wearable motion tracking systems.
         </motion.p>
 
-        {/* Two clear CTAs */}
+        {/* Primary CTA */}
         <motion.div
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.6, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          className="flex flex-wrap items-center justify-center gap-4"
+          transition={{ delay: 2.6, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="flex items-center justify-center mb-4"
         >
           <a
             href="#projects"
@@ -69,7 +78,27 @@ export default function Hero() {
                        hover:underline underline-offset-2
                        transition-colors duration-200"
           >
-            Projects
+            Explore Projects
+          </a>
+        </motion.div>
+
+        {/* Secondary CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.8, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="flex flex-wrap items-center justify-center gap-4"
+        >
+          <a
+            href="https://github.com/Alienware2000"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-slate-700 dark:text-slate-300
+                       hover:text-slate-900 dark:hover:text-slate-100
+                       hover:underline underline-offset-2
+                       transition-colors duration-200"
+          >
+            GitHub
           </a>
           <a
             href="https://www.linkedin.com/in/david-antwi-b17727205/"
@@ -80,7 +109,27 @@ export default function Hero() {
                        hover:underline underline-offset-2
                        transition-colors duration-200"
           >
-            Connect
+            LinkedIn
+          </a>
+          <a
+            href="https://docs.google.com/document/d/1dG3RB7G0t2EGW9VvXpHzEef261Usfg7uScn-jP6IdEE/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-slate-700 dark:text-slate-300
+                       hover:text-slate-900 dark:hover:text-slate-100
+                       hover:underline underline-offset-2
+                       transition-colors duration-200"
+          >
+            Resume
+          </a>
+          <a
+            href="mailto:antwidavid389@gmail.com?subject=Hi%20David%20%E2%80%94%20from%20your%20portfolio&body=Hi%20David,"
+            className="text-sm text-slate-700 dark:text-slate-300
+                       hover:text-slate-900 dark:hover:text-slate-100
+                       hover:underline underline-offset-2
+                       transition-colors duration-200"
+          >
+            Email
           </a>
         </motion.div>
       </motion.div>
