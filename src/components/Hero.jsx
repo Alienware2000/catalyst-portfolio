@@ -28,7 +28,7 @@ export default function Hero() {
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight
                        text-slate-900 dark:text-slate-100
                        leading-[1.08] mb-8 whitespace-nowrap">
-          <Typewriter text="Welcome to my website" baseSpeed={140} startDelay={1800} />
+          <Typewriter text="I'm David Antwi" baseSpeed={140} startDelay={1800} />
         </h1>
 
         {/* One sentence value statement */}

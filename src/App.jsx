@@ -71,35 +71,44 @@ export default function App() {
         <NextSectionButton href="#contact" />
       </Section>
 
-      {/* Contact Section - Compact, no full-height */}
+      {/* Contact Section - Call to Action */}
       <Section id="contact" title="Contact" className="mb-12">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-base text-slate-600 dark:text-slate-400 mb-6">
-            Let's connect and build something amazing together.
+          <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 mb-4 font-medium">
+            Let's work together.
+          </p>
+          <p className="text-base text-slate-600 dark:text-slate-400 mb-8">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
           </p>
           
-          <div className="flex items-center justify-center gap-6 mb-12">
+          <div className="flex items-center justify-center gap-8 mb-12">
             <a
               href="https://github.com/Alienware2000"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-700 dark:text-slate-300
+              className="px-6 py-3 rounded-lg border border-white/20 dark:border-white/10
+                         text-slate-700 dark:text-slate-300
                          hover:text-slate-900 dark:hover:text-slate-100
+                         hover:bg-slate-100/50 dark:hover:bg-slate-800/50
                          hover:underline underline-offset-2
-                         transition-colors duration-200"
+                         transition-all duration-200
+                         font-medium"
             >
-              GitHub
+              View on GitHub
             </a>
             <a
               href="https://www.linkedin.com/in/david-antwi-b17727205/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-700 dark:text-slate-300
+              className="px-6 py-3 rounded-lg border border-white/20 dark:border-white/10
+                         text-slate-700 dark:text-slate-300
                          hover:text-slate-900 dark:hover:text-slate-100
+                         hover:bg-slate-100/50 dark:hover:bg-slate-800/50
                          hover:underline underline-offset-2
-                         transition-colors duration-200"
+                         transition-all duration-200
+                         font-medium"
             >
-              LinkedIn
+              Connect on LinkedIn
             </a>
           </div>
         </div>
