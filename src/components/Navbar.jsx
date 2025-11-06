@@ -4,34 +4,51 @@
  * Vanish on scroll for clean, immersive experience
  * Inspired by minimalist portfolio aesthetic
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ThemeToggle from "./ThemeToggle.jsx";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
+  const heroBottomRef = useRef(0);
+  const rafRef = useRef(0);
 
   useEffect(() => {
-    let lastScroll = 0;
-
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      
-      // Show navbar when at top or scrolling up
-      // Hide when scrolling down past a threshold (50px)
-      if (currentScroll < 50) {
-        setIsVisible(true);
-      } else if (currentScroll > lastScroll) {
-        setIsVisible(false); // Scrolling down
-      } else {
-        setIsVisible(true); // Scrolling up
+    const computeHeroBottom = () => {
+      const hero = document.getElementById("hero");
+      if (!hero) {
+        heroBottomRef.current = 120; // fallback small threshold
+        return;
       }
-      
-      lastScroll = currentScroll;
+      const rect = hero.getBoundingClientRect();
+      const scrollTop = window.scrollY || window.pageYOffset;
+      heroBottomRef.current = rect.top + scrollTop + rect.height;
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        const y = window.scrollY || window.pageYOffset;
+        // Show only when user is essentially at the very top.
+        // As soon as any downward scroll happens, hide the navbar.
+        const show = y <= 1; // hide immediately after any downward scroll
+        setIsVisible(show);
+      });
+    };
+
+    computeHeroBottom();
+    window.addEventListener("resize", computeHeroBottom, { passive: true });
+    window.addEventListener("load", computeHeroBottom, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // Set initial state
+    onScroll();
+
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      window.removeEventListener("resize", computeHeroBottom);
+      window.removeEventListener("load", computeHeroBottom);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const navLinks = [
