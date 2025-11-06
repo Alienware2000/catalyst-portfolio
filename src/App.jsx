@@ -19,22 +19,22 @@ export default function App() {
       <IntroOverlay name="David Antwi" duration={1800} />
       <Atmosphere />
       
-      <main className="mx-auto max-w-5xl px-6 pt-10 sm:pt-14 snap-y snap-proximity">
+      <main className="mx-auto max-w-5xl px-6 pt-10 sm:pt-14">
         <Navbar />
         <Hero />
 
         {/* Projects Section */}
-        <Section id="projects" title="Projects" full className="mb-24">
+        <Section id="projects" title="Projects" full className="scroll-mt-8 pt-10 sm:pt-12 pb-24">
           <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((p) => (
               <ProjectCard key={p.title} {...p} />
             ))}
           </div>
-          <NextSectionButton href="#about" variant="inline" offset={96} />
+          <NextSectionButton href="#about" variant="inline" offset={0} />
         </Section>
 
         {/* About Section - 3 horizontal paragraphs with borders, vertically centered */}
-        <Section id="about" title="About" full className="mb-24">
+        <Section id="about" title="About" full className="scroll-mt-28 pt-20 sm:pt-24 pb-24">
           <div className="flex items-center flex-1 min-h-0">
             <div className="mx-auto max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="p-6 rounded-lg border border-white/20 dark:border-white/10 bg-transparent">
@@ -63,16 +63,16 @@ export default function App() {
               </div>
             </div>
           </div>
-          <NextSectionButton href="#skills" />
+          {/* No chevron here to keep the section clean once reached */}
         </Section>
 
-      <Section id="skills" title="Skills" full>
+      <Section id="skills" title="Skills" full className="scroll-mt-40 pt-20 sm:pt-24 pb-24">
         <Skills />
-        <NextSectionButton href="#contact" />
+        {/* <NextSectionButton href="#contact" /> */}
       </Section>
 
       {/* Contact Section - Call to Action */}
-      <Section id="contact" title="Contact" className="mb-12">
+      <Section id="contact" title="Contact" className="scroll-mt-40 pt-16 pb-12">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 mb-4 font-medium">
             Let's work together.

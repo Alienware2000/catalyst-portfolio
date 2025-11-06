@@ -6,7 +6,7 @@
  */
 import { motion, useReducedMotion } from "framer-motion";
 
-export default function NextSectionButton({ href, label = "Next section", show = true, variant = "overlay", offset = 96 }) {
+export default function NextSectionButton({ href, label = "Next section", show = true, variant = "overlay", offset = 160 }) {
   const reduce = useReducedMotion();
   if (!show) return null;
 

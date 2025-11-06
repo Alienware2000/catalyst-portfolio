@@ -13,6 +13,14 @@ export default function Navbar() {
   const heroBottomRef = useRef(0);
   const rafRef = useRef(0);
 
+  const scrollToWithOffset = (hash, offset = 64) => {
+    const el = document.querySelector(hash);
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const top = (window.scrollY || window.pageYOffset) + rect.top - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const computeHeroBottom = () => {
       const hero = document.getElementById("hero");
@@ -51,6 +59,8 @@ export default function Navbar() {
     };
   }, []);
 
+  // Rely on Tailwind scroll-mt-* per section for anchor landing
+
   const navLinks = [
     { href: "#projects", label: "Projects" },
     { href: "#about", label: "About" },
@@ -76,6 +86,12 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  onClick={(e) => {
+                    if (link.href === "#projects") {
+                      e.preventDefault();
+                      scrollToWithOffset("#projects", 10);
+                    }
+                  }}
                   className="text-slate-700 dark:text-slate-300
                              hover:text-slate-900 dark:hover:text-slate-100
                              hover:underline underline-offset-2

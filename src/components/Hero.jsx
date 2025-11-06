@@ -12,6 +12,14 @@ export default function Hero() {
   const ref = useRef(null);
   const inView = useInView(ref, { amount: 0.6 });
 
+  const scrollToWithOffset = (hash, offset = 64) => {
+    const el = document.querySelector(hash);
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const top = (window.scrollY || window.pageYOffset) + rect.top - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   return (
     <section
       id="hero"
@@ -73,6 +81,10 @@ export default function Hero() {
         >
           <a
             href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToWithOffset('#projects', 10);
+            }}
             className="text-sm text-slate-700 dark:text-slate-300
                        hover:text-slate-900 dark:hover:text-slate-100
                        hover:underline underline-offset-2
@@ -133,7 +145,7 @@ export default function Hero() {
           </a>
         </motion.div>
       </motion.div>
-      <NextSectionButton href="#projects" show={inView} offset={96} />
+      <NextSectionButton href="#projects" show={inView} offset={0} />
     </section>
   );
 }
