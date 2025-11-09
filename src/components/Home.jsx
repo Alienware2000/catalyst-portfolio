@@ -1,37 +1,13 @@
-import IntroOverlay from "./IntroOverlay.jsx";
 import Hero from "./Hero.jsx";
 import ProjectCard from "./ProjectCard.jsx";
 import { projects } from "../data/projects.js";
 import Section from "./Section.jsx";
 import NextSectionButton from "./NextSectionButton.jsx";
 import Skills from "./Skills.jsx";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [showOverlay, setShowOverlay] = useState(false);
-  useEffect(() => {
-    // Show overlay on first page load AND on hard refresh,
-    // but not when returning via client-side route navigation.
-    try {
-      const nav = performance.getEntriesByType("navigation")[0];
-      const isReload = nav && nav.type === "reload";
-      if (isReload) {
-        setShowOverlay(true);
-        return;
-      }
-    } catch {}
-
-    const seen = typeof window !== "undefined" && sessionStorage.getItem("introShown") === "1";
-    if (!seen) {
-      setShowOverlay(true);
-      try { sessionStorage.setItem("introShown", "1"); } catch {}
-    }
-  }, []);
-
   return (
     <>
-      {showOverlay && <IntroOverlay name="David Antwi" duration={1800} />}
-
       <main className="mx-auto max-w-5xl px-6 pt-10 sm:pt-14">
         <Hero />
 
