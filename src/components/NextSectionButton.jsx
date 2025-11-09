@@ -20,7 +20,7 @@ export default function NextSectionButton({ href, label = "Next section", show =
     window.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
   };
 
-  const base = "mx-auto flex h-8 w-8 items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200";
+  const base = "mx-auto hidden sm:flex h-8 w-8 items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors duration-200";
 
   if (variant === "inline") {
     return (
@@ -29,9 +29,9 @@ export default function NextSectionButton({ href, label = "Next section", show =
         onClick={handleClick}
         aria-label={label}
         className={`${base} relative mt-10 sm:mt-12`}
-        initial={{ opacity: 0, y: 6 }}
-        animate={{ opacity: 1, y: [0, -4, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        initial={reduce ? { opacity: 1 } : { opacity: 0, y: 6 }}
+        animate={reduce ? { opacity: 1 } : { opacity: 1, y: [0, -4, 0] }}
+        transition={reduce ? undefined : { duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         <svg viewBox="0 0 24 24" className="h-5 w-5">
           <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -47,9 +47,9 @@ export default function NextSectionButton({ href, label = "Next section", show =
       onClick={handleClick}
       aria-label={label}
       className={`${base} absolute inset-x-0 bottom-10`}
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: [0, -4, 0] }}
-      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      initial={reduce ? { opacity: 1 } : { opacity: 0, y: 6 }}
+      animate={reduce ? { opacity: 1 } : { opacity: 1, y: [0, -4, 0] }}
+      transition={reduce ? undefined : { duration: 2, repeat: Infinity, ease: "easeInOut" }}
     >
       <svg viewBox="0 0 24 24" className="h-5 w-5">
         <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

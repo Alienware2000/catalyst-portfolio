@@ -33,11 +33,12 @@
   }
 
   /* Base transitions - only essential properties */
-  * {
-    transition-property: background-color, color, border-color, opacity, transform;
-    transition-timing-function: ease-out;
-    transition-duration: 0.15s;
-  }
+      /* Limit global transitions to avoid mobile repaint flicker */
+      * {
+        transition-property: background-color, color, border-color;
+        transition-timing-function: ease-out;
+        transition-duration: 0.15s;
+      }
 }
 
 /* Custom animations */
