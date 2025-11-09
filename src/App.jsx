@@ -73,7 +73,8 @@ export default function App() {
 
       {/* Contact Section - Call to Action */}
       <Section id="contact" title="Contact" className="scroll-mt-40 pt-16 pb-12">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="w-full flex justify-center">
+          <div className="max-w-3xl text-center">
           <p className="text-lg sm:text-xl text-slate-700 dark:text-slate-300 mb-4 font-medium">
             Let's work together.
           </p>
@@ -110,6 +111,7 @@ export default function App() {
             >
               Connect on LinkedIn
             </a>
+          </div>
           </div>
         </div>
       </Section>
