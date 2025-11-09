@@ -1,20 +1,20 @@
 export const projects = [
   {
+    title: "Wearable Motion Tracking System",
+    description: "A wearable device that tracks body movement in real-time using multiple sensors. Useful for sports analysis, physical therapy, and motion capture applications.",
+    tags: ["C++", "Embedded Systems", "Sensor Fusion", "IMU", "Microcontrollers"],
+    link: "https://github.com/Alienware2000/FaboIMUrig"
+  },
+  {
     title: "Academic Matcher",
     description: "A smart search tool that helps students find research labs that match their interests. Uses AI to understand what professors work on and connects students with the right opportunities.",
     tags: ["Python", "NLP", "SentenceTransformer", "FAISS", "Streamlit", "BeautifulSoup"],
-    link: "https://github.com/Alienware2000"
+    link: "https://github.com/Alienware2000/AcademicMatcher"
   },
   {
     title: "TinyML Malaria Diagnosis System",
     description: "A portable medical device that can detect malaria from cell images without needing internet. Designed for use in remote areas where healthcare access is limited.",
     tags: ["TinyML", "Python", "TensorFlow", "Arduino", "Computer Vision", "Medical ML"],
-    link: "https://github.com/Alienware2000"
-  },
-  {
-    title: "Wearable Motion Tracking System",
-    description: "A wearable device that tracks body movement in real-time using multiple sensors. Useful for sports analysis, physical therapy, and motion capture applications.",
-    tags: ["C++", "Embedded Systems", "Sensor Fusion", "IMU", "Microcontrollers"],
     link: "https://github.com/Alienware2000"
   },
   {
