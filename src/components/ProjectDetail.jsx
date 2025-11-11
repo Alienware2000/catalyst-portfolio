@@ -25,7 +25,7 @@ export default function ProjectDetail() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-16">
       {/* Hero */}
-      <header className="mb-10">
+      <header className="mb-12">
         <h1 className="mb-2 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
           {project.title}
         </h1>
@@ -143,9 +143,12 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      <Link to="/" className="text-blue-600 dark:text-blue-400 hover:underline">
-        ← Back to Home
-      </Link>
+      {/* Footer nav with divider for clearer separation */}
+      <div className="mt-10 border-t border-white/10 pt-6">
+        <Link to="/" className="text-blue-600 dark:text-blue-400 hover:underline">
+          ← Back to Home
+        </Link>
+      </div>
     </main>
   );
 }
