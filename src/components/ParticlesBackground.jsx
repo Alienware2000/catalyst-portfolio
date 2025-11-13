@@ -234,8 +234,14 @@ export default function ParticlesBackground() {
       }
     };
     const handleVisibility = () => {
-      pausedRef.current = document.hidden;
-      if (!pausedRef.current && !rafRef.current) {
+      if (document.hidden) {
+        pausedRef.current = true;
+        if (rafRef.current) {
+          cancelAnimationFrame(rafRef.current);
+          rafRef.current = 0;
+        }
+      } else {
+        pausedRef.current = false;
         lastTsRef.current = 0;
         rafRef.current = requestAnimationFrame(draw);
       }
@@ -269,6 +275,9 @@ export default function ParticlesBackground() {
 
     window.addEventListener("resize", resize);
     document.addEventListener("visibilitychange", handleVisibility);
+    // Handle back/forward cache and lifecycle on Safari/iOS
+    window.addEventListener("pageshow", handleVisibility);
+    window.addEventListener("pagehide", handleVisibility);
 
     resize();
     // Attach or detach interaction listeners based on initial mode
@@ -284,6 +293,8 @@ export default function ParticlesBackground() {
       window.removeEventListener("resize", resize);
       removeInteractionListeners();
       document.removeEventListener("visibilitychange", handleVisibility);
+      window.removeEventListener("pageshow", handleVisibility);
+      window.removeEventListener("pagehide", handleVisibility);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       rafRef.current = 0;
     };
