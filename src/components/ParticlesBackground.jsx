@@ -57,12 +57,13 @@ export default function ParticlesBackground() {
       state.width = window.innerWidth;
       state.height = window.innerHeight;
       state.desktop = state.width >= 768;
-      state.interactive = state.desktop; // Disable interactivity on mobile
-      state.brownian = !state.desktop;   // Enable slow Brownian motion on mobile
+      // Disable interactivity for ALL devices; enable subtle Brownian motion
+      state.interactive = false;
+      state.brownian = true;
       state.count = state.desktop ? 120 : 60;
-      state.linkDist = state.desktop ? 120 : 110; // slightly more links on mobile for fill
+      state.linkDist = state.desktop ? 120 : 110; // keep good fill
       state.nodeRadiusRange = state.desktop ? [1.2, 2.2] : [1.0, 1.8];
-      state.speed = state.desktop ? 0.06 : 0.03; // subtler motion on mobile
+      state.speed = state.desktop ? 0.04 : 0.03; // subtle motion everywhere
       canvas.width = Math.floor(state.width * state.dpr);
       canvas.height = Math.floor(state.height * state.dpr);
       canvas.style.width = `${state.width}px`;
