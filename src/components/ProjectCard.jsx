@@ -6,7 +6,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-export default function ProjectCard({ title, description, tags = [], link, slug }) {
+export default function ProjectCard({ title, description, tags = [], link, slug, status, started }) {
   const navigate = useNavigate();
   return (
     <motion.article
@@ -32,6 +32,13 @@ export default function ProjectCard({ title, description, tags = [], link, slug 
       <h3 className="text-lg font-medium text-slate-900 dark:text-slate-100">
         {title}
       </h3>
+      {(status || started) && (
+        <div>
+          <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-slate-600 dark:text-slate-300">
+            {status ? status : null}{status && started ? " · " : ""}{started ? started : null}
+          </span>
+        </div>
+      )}
       <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
         {description}
       </p>

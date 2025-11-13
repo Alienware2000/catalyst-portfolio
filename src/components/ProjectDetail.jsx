@@ -95,6 +95,13 @@ export default function ProjectDetail() {
         <h1 className="mb-2 text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
           {project.title}
         </h1>
+        {(project.status || project.started) && (
+          <div className="mb-2">
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[11px] text-slate-600 dark:text-slate-300">
+              {project.status ? project.status : null}{project.status && project.started ? " · " : ""}{project.started ? project.started : null}
+            </span>
+          </div>
+        )}
         <p className="mb-6 text-slate-600 dark:text-slate-400">
           {project.description}
         </p>
