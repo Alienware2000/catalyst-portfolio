@@ -172,102 +172,116 @@ export default function ProjectDetail() {
       {projectDetails[slug] ? (
         <div className="space-y-12">
           <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Project Overview
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300">{projectDetails[slug].overview}</p>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Project Overview
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">{projectDetails[slug].overview}</p>
+            </div>
           </section>
           <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
 
           <section className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
+            <div className="surface-panel">
+              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100">
                 Challenge
               </h3>
-              <p className="text-slate-600 dark:text-slate-300">{projectDetails[slug].challenge}</p>
+              <p className="text-slate-600 dark:text-slate-200">{projectDetails[slug].challenge}</p>
             </div>
-            <div>
-              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
+            <div className="surface-panel">
+              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100">
                 Solution
               </h3>
-              <p className="text-slate-600 dark:text-slate-300">{projectDetails[slug].solution}</p>
+              <p className="text-slate-600 dark:text-slate-200">{projectDetails[slug].solution}</p>
             </div>
           </section>
           <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
 
           <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Method & Implementation
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300">{projectDetails[slug].method}</p>
-          </section>
-          <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
-
-          <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Results & Performance
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300">{projectDetails[slug].results}</p>
-            {/* Inline stat chips to highlight key results */}
-            <div className="mt-3 flex flex-wrap gap-2">
-              <span className="rounded-full bg-white/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300">
-                50 Hz streaming
-              </span>
-              <span className="rounded-full bg-white/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300">
-                Low drift
-              </span>
-              <span className="rounded-full bg-white/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300">
-                Multi‑node
-              </span>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Method & Implementation
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">{projectDetails[slug].method}</p>
             </div>
           </section>
           <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
 
           <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Ongoing Work
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300">{projectDetails[slug].ongoing}</p>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Results & Performance
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">{projectDetails[slug].results}</p>
+              {/* Inline stat chips to highlight key results */}
+              <div className="mt-3 flex flex-wrap gap-2">
+                <span className="rounded-full bg-white/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300">
+                  50 Hz streaming
+                </span>
+                <span className="rounded-full bg-white/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300">
+                  Low drift
+                </span>
+                <span className="rounded-full bg-white/5 dark:bg-white/5 px-2.5 py-0.5 text-xs text-slate-600 dark:text-slate-300">
+                  Multi‑node
+                </span>
+              </div>
+            </div>
+          </section>
+          <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
+
+          <section>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Ongoing Work
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">{projectDetails[slug].ongoing}</p>
+            </div>
           </section>
         </div>
       ) : (
         <div className="space-y-12">
           <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Project Overview
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400">
-              High‑level summary of the project’s purpose, scope, and audience.
-            </p>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Project Overview
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">
+                High‑level summary of the project’s purpose, scope, and audience.
+              </p>
+            </div>
           </section>
           <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
           <section className="grid gap-6 sm:grid-cols-2">
-            <div>
-              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
+            <div className="surface-panel">
+              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100">
                 Challenge
               </h3>
-              <p className="text-slate-600 dark:text-slate-400">What problem were we solving?</p>
+              <p className="text-slate-600 dark:text-slate-200">What problem were we solving?</p>
             </div>
-            <div>
-              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
+            <div className="surface-panel">
+              <h3 className="mb-2 text-lg font-medium tracking-wide text-slate-900 dark:text-slate-100">
                 Solution
               </h3>
-              <p className="text-slate-600 dark:text-slate-400">A concise look at the core idea and approach.</p>
+              <p className="text-slate-600 dark:text-slate-200">A concise look at the core idea and approach.</p>
             </div>
           </section>
           <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
           <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Method & Implementation
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400">Stack, frameworks, and how it fits together.</p>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Method & Implementation
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">Stack, frameworks, and how it fits together.</p>
+            </div>
           </section>
           <div className="h-px w-full bg-gradient-to-r from-cyan-400/20 via-slate-500/10 to-indigo-400/20" />
           <section>
-            <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100 hover:text-cyan-300 transition-colors duration-300">
-              Results & Performance
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400">Outcomes, metrics, and performance notes.</p>
+            <div className="surface-panel">
+              <h2 className="mb-3 text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                Results & Performance
+              </h2>
+              <p className="text-slate-600 dark:text-slate-200">Outcomes, metrics, and performance notes.</p>
+            </div>
           </section>
         </div>
       )}
