@@ -15,17 +15,17 @@ export const projectDetails = {
   },
   "agentic-gridworld": {
     overview:
-      "Game Agents is my personal sandbox for learning agentic development from first principles. Instead of relying on pre-built frameworks, I am building everything from scratch — the worlds, the tools, the agent loops, the planners, and later the MCP server that will make the agent portable across environments. The long-term goal is to master agentic thinking and agentic engineering across any domain: games, embedded systems, robotics, productivity, business automation, and beyond. This project uses games as a fun and visual way to explore agent capabilities, decision-making, perception, and tool usage.",
+      "Game Agents is my personal sandbox for learning agentic development from first principles. Instead of relying on pre-built frameworks, I am building everything from scratch, including the worlds, the tools, the agent loops, and the planners. The environment is now MCP ready: the GridWorld runs as a tool server that external agents and LLMs can control via standard tool calls. The long-term goal is to master agentic thinking and agentic engineering across any domain: games, embedded systems, robotics, productivity, business automation, and beyond. This project uses games as a fun and visual way to explore agent capabilities, decision-making, perception, and tool usage.",
     challenge:
       "How can I teach myself agentic development effectively—and make the process genuinely enjoyable? I needed a hands‑on way to practice perception, planning, tools, and control loops without the overhead of large frameworks.",
     solution:
       "Start by building agents for simple, custom game environments, then scale the same architecture to richer worlds (e.g., Minecraft or Terraria). Everything is engineered from scratch so the concepts transfer cleanly as complexity grows.",
     method:
-      "Built a fully custom GridWorld (10×10) and tool interface from scratch to study agentic systems. The agent interacts only via tools (observe, move, pickup, craft), enabling a clean agent loop of observe → plan → act → observe. The environment supports borders, items, inventory, crafting (torch = coal + stick), and goals — forming a realistic, minimal lab for agent behavior. Implementation details: Python world + agent; tools (observe/move/pickup/craft); planner evolved from scripted (M2) to perception‑driven (M3B). Data structures include tuples, dicts, lists, and JSON‑like messages for clean tool calls and observations.",
+      "Built a custom GridWorld (10x10) and tool interface to study agentic systems. The agent interacts only via tools (observe, move, pickup, craft), enabling a clean agent loop of observe -> plan -> act -> observe. The environment supports borders, items, inventory, crafting (torch = coal + stick), and goals, forming a realistic, minimal lab for agent behavior. Milestones 0 to 3 established a perception driven agent that locates items, picks up resources, and crafts the torch to complete a multi step goal. Milestone 4 adds an MCP server (mcp_gridworld_server.py) using FastMCP over STDIO, exposing observe, move, pickup, and craft as schema described tools, validated with the MCP Inspector. The world now behaves like a portable tool service that any MCP capable agent can connect to.",
     results:
-      "Autonomous, perception‑driven completion of a multi‑step goal: collect coal, collect stick, craft torch. The architecture now cleanly supports agent loops, tools, and goals — providing the full scaffolding to swap in an LLM planner next.",
+      "End to end verified: launched the MCP server, connected with MCP Inspector, invoked tools, observed live world updates, and crafted using protocol calls. This lifts the environment from a local Python loop to a portable, externally controlled tool API, laying the foundation for an LLM planner next.",
     ongoing:
-      "Build my own MCP server for this project to expose tools and make the agent portable across environments. Repository: https://github.com/Alienware2000/game-agents"
+      "Next milestones: integrate an LLM planner (Milestone 5) for decision making from observations, and add a second game world (Milestone 6) using Pygame or a custom design. Repository: https://github.com/Alienware2000/game-agents"
   }
 };
 

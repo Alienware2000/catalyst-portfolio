@@ -11,7 +11,7 @@ export const projects = [
   {
     slug: "agentic-gridworld",
     title: "Game Agents",
-    description: "A from scratch agent sandbox for learning agentic development by building worlds, tools, and planners from first principles.",
+    description: "A from scratch agent sandbox for agentic development with a portable MCP tool server.",
     tags: ["Python", "Agents", "Planning", "Autonomy"],
     status: "In progress",
     started: "2025",
